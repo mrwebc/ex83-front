@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- 네임스페이스는 "풀패키지+인터페이스명" -->
+<mapper namespace="com.study.jsp.dao.BoardMapper">
+  <cache />
+  
+  <select id="findAll" resultType="bVo">
+    select * from board order by seq desc;
+  </select>
+  
+  <select id="getOne" resultType="bVo">
+    select * from board 
+    <if test="seq!=null">
+        where seq = #{seq};
+    </if>
+  </select>
+
+  <insert id="save" parameterType="bVo">
+    insert into board(title, nickname, content, userid) values 
+    (#{title}, #{nickname}, #{content}, #{userid});
+  </insert>  
+  
+  <update id="update" parameterType="bVo">
+    update board 
+    <set>
+        <if test="title!=null">title = #{title},</if>
+        <if test="content!=null">content = #{content}</if>
+    </set>
+    where seq = #{seq};
+  </update>
+  
+  <update id="increaseCnt">
+    update board 
+    <trim prefix="set">
+	    cnt = cnt+1 
+    </trim>
+    where seq = #{seq}
+  </update>  
+  
+  <delete id="delete">
+    delete from board 
+    <where>
+        <if test="seq!=null">
+            seq = #{seq}
+        </if>
+    </where>
+  </delete>
+  
+</mapper>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- 네임스페이스는 "풀패키지+인터페이스명" -->
+<mapper namespace="com.study.jsp.dao.UserMapper">
+    <cache />
+    
+    <select id="findAll" resultType="uVo">
+        select * from user order by name asc;
+    </select>
+
+    <select id="getOne" resultType="uVo" parameterType="hashmap">
+        select * from user 
+        
+        <trim prefix="where">
+            <if test="userid!=null">
+                userid = #{userid}
+            </if>
+            <if test="userpw != null">
+                and password = #{userpw}
+            </if>
+        </trim>
+    </select>
+    
+    <select id="selectedById" resultType="uVO">
+        select * from user 
+        <if test="userid!=null">
+	        where userid = #{userid};
+        </if>
+    </select>
+    
+    <select id="chkid" resultType="Integer">
+        select count(*) from user 
+        <where>
+            <if test="userid!=null">
+		        userid = #{userid};
+            </if>
+        </where>
+    </select>
+    
+    <insert id="save" parameterType="uVo">
+        insert into user values (#{userid}, #{password}, #{name}, #{role});
+    </insert>
+    
+    <update id="update" parameterType="uVo">
+        update user 
+        <!-- 
+            prefix 옵션은 맨 처음에 set 을 붙여준다.
+            suffixOverrides 옵션은 맨 마지막의 콤마를 지워준다.
+         -->        
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="password!=null">
+                password=#{password}
+            </if>
+            <if test="role!=null">
+                role=#{role},
+            </if>
+        </trim>            
+        where userid=#{userid}  
+    </update>
+    
+    <delete id="delete">
+        delete from user
+        <trim prefix="where">
+            <if test="userid!=null">
+		        userid = #{userid};
+            </if>
+        </trim>
+    </delete>
+</mapper>
+
+
+
+
+
+
+
+
