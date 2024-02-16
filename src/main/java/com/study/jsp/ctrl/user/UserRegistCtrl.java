@@ -6,8 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.study.jsp.conf.Factory;
 import com.study.jsp.ctrl.Controller;
+import com.study.jsp.ioc.Factory;
 import com.study.jsp.model.UserDTO;
 import com.study.jsp.srv.UserService;
 
@@ -18,7 +18,7 @@ public class UserRegistCtrl implements Controller {
    
     Map<String, String> viewInfo = new HashMap<String, String>();
     viewInfo.put("name", "forward");
-    viewInfo.put("path", "/user/list.do");
+    viewInfo.put("viewName", "/user/list.do");
 
     String userid = req.getParameter("userid");
     String password = req.getParameter("password");

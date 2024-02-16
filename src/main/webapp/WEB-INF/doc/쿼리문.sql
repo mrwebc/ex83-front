@@ -1,6 +1,6 @@
-create database front default character set utf8;
+create database mvc default character set utf8;
 
-use front;
+use mvc;
 
 drop table if exists board;
 drop table if exists user;

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.study.jsp.conf.Factory;
+import com.study.jsp.ioc.Factory;
 import com.study.jsp.srv.UserService;
 
 

@@ -16,7 +16,7 @@ public class UserLogoutCtrl implements Controller {
 
     Map<String, String> viewInfo = new HashMap<String, String>();
     viewInfo.put("name", "redirect");
-    viewInfo.put("path", "/index.jsp");
+    viewInfo.put("viewName", "/index.jsp");
     
     HttpSession session = req.getSession();
     session.invalidate();

@@ -13,7 +13,6 @@
     	
         <c:set var="contextPath" value="${pageContext.request.contextPath}" />
     	<form action="${contextPath}/user/edit.do">
-    	    
     		<fieldset>
     			<legend>내용보기</legend>
     			<ul>

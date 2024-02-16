@@ -6,8 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.study.jsp.conf.Factory;
 import com.study.jsp.ctrl.Controller;
+import com.study.jsp.ioc.Factory;
 import com.study.jsp.srv.BoardService;
 
 public class BoardDeleteCtrl implements Controller {
@@ -17,7 +17,7 @@ public class BoardDeleteCtrl implements Controller {
     
     Map<String, String> viewInfo = new HashMap<String, String>();
     viewInfo.put("name", "redirect");
-    viewInfo.put("path", "/board/list.do");
+    viewInfo.put("viewName", "/board/list.do");
     
     int seq = 0;
     String seq_ = req.getParameter("seq");

@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 
-import com.study.jsp.conf.MyBatisManager;
+import myBatis.MyBatisManager;
 
 public class MyBatisConnectionTest {
 

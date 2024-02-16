@@ -7,8 +7,10 @@ import org.apache.ibatis.session.SqlSession;
 import com.study.jsp.model.BoardVO;
 
 public class BoardMapperDAO implements BoardMapper{
-  
+
+  // 필요한 객체를 Factory에서 주입(DI)
 	private SqlSession sqlSession;
+	
 	public BoardMapperDAO(SqlSession sqlSession) {
 	  this.sqlSession = sqlSession;
 	}
@@ -28,7 +30,8 @@ public class BoardMapperDAO implements BoardMapper{
 	
 	public int save(BoardVO vo) {		
 	  int result = 0;
-	  
+
+    // 트랜잭션 예외처리
 	  try {
 	    result = mp().save(vo);
 	    sqlSession.commit();

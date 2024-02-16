@@ -40,7 +40,7 @@ public class HanderMapping {
   }
 
   // 요청경로에 해당하는 서브컨트롤러 객체 리턴
-  public Controller getController(String path) {
-    return urlMap.get(path);
+  public Controller getController(String viewName) {
+    return urlMap.get(viewName);
   }
 }

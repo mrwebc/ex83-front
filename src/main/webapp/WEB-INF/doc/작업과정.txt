@@ -1,0 +1,112 @@
+▣ 모델2 - FrontController
+
+1. 프로젝트 생성 -  jsp_mvc2_front -> 메이븐 프로젝트로 변환
+
+2. pom.xml 에서 디펜던시 설정
+
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+    <dependency>
+        <groupId>com.mysql</groupId>
+        <artifactId>mysql-connector-j</artifactId>
+        <version>8.0.33</version>
+    </dependency>
+    
+      
+    <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+    <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>3.5.7</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+    </dependency>
+        
+
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.30</version>
+        <scope>provided</scope>
+    </dependency>
+    
+	<!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
+	<dependency>
+	    <groupId>org.modelmapper</groupId>
+	    <artifactId>modelmapper</artifactId>
+	    <version>3.2.0</version>
+	</dependency>
+	
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+    </dependency>   
+        
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>2.22.1</version>
+    </dependency>
+
+    
+  </dependencies>
+    
+
+3. 자바버전을 11로 설정
+4. main>resources 폴더 생성후 "Use as Source Folder" 설정
+	로깅정보 기록을 출력하는 모듈을 사용하기 위한 설정파일 log4j2.xml 생성
+
+5. myBatis 설정 -> mvc2에서 작업한 패키지를 resources 로 이동
+6. mvc2에서 작업한 모든 패키지를 front로 이동
+7. ctrl 패지지안의 모든 내용을 삭제후 user, board 패키지 추가
+
+. webapp 하위에 css>style.css, views>board+user 폴더 생성
+
+
+
+
+
+
+Map<String, String> viewInfo = new HashMap<String, String>();
+viewInfo.put("name", "");
+viewInfo.put("path", "");
+
+
+
+1. 클래스명 - BoardWriteCtrl
+2. 요청경로 - /board/write.do
+
+3. HandlerMapping에 요청경로에 다른 서브컨트롤러 등록
+
+4. BoardWriteCtrl 작업
+
+	1) viewInfo 작업
+		(1) redirect로 할지 forward로 할지 결정
+		(2) 알맞은 path 경로 지정
+		
+	2) 클라이언트가 보내온 정보수신
+	3) DTO 객체에 패키징
+	4) 알맞은 서비스 객체를 얻어와 작업
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,12 @@
 package com.study.jsp.model;
 
 import java.io.Serializable;
+
+/*
+ * java.util.Date - 날짜시간 저장
+ * 
+ * java.sql.Date - 날짜만 저장
+ */
 import java.sql.Date;
 
 import lombok.AllArgsConstructor;

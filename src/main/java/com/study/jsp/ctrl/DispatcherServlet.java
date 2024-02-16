@@ -43,18 +43,18 @@ public class DispatcherServlet extends HttpServlet{
     HanderMapping handlerMapping = new HanderMapping();
     Controller ctrl = handlerMapping.getController(path);
 
-    // 3단계 - 서브컨트롤러 실행 및 path 추출
+    // 3단계 - 서브컨트롤러 실행 및 viewName 추출
     Map<String, String> viewInfo = ctrl.execute(req, res);
     
     if(viewInfo.get("name").equals("forward")) {
       // 4단계 - 프론트단으로 데이터 포워딩
       //getRequestDispatcher()는 contextPath를 기준으로 자원을 구한다.
-      RequestDispatcher dispatcher = req.getRequestDispatcher(viewInfo.get("path"));
+      RequestDispatcher dispatcher = req.getRequestDispatcher(viewInfo.get("viewName"));
       dispatcher.forward(req, res);
       return;
     }
     
-    res.sendRedirect(req.getContextPath()+viewInfo.get("path"));
+    res.sendRedirect(req.getContextPath()+viewInfo.get("viewName"));
 
   }
 }

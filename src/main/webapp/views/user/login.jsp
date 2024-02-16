@@ -18,7 +18,7 @@
 					</li>
 					<li>
                        <label for="userpw">비밀번호</label>
-                       <input type="text" id="userpw" name="userpw" value="1234" />
+                       <input type="text" id="password" name="password" value="1234" />
 					</li>
 				</ul>
 			</fieldset>

@@ -22,8 +22,8 @@ public class UserDTO{
 	private String name;
 	private String role;
 	
-	public int compareIdPwd(String newPassword) {
-	  return this.password.compareTo(newPassword);
+	public int comparePwd(String dbPassword) {
+	  return this.password.compareTo(dbPassword);
 	}
 
 }

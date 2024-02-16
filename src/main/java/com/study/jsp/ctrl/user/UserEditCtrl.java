@@ -7,8 +7,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.study.jsp.conf.Factory;
 import com.study.jsp.ctrl.Controller;
+import com.study.jsp.ioc.Factory;
 import com.study.jsp.model.UserDTO;
 import com.study.jsp.srv.UserService;
 
@@ -19,7 +19,7 @@ public class UserEditCtrl implements Controller {
     
     Map<String, String> viewInfo = new HashMap<String, String>();
     viewInfo.put("name", "redirect");
-    viewInfo.put("path", "/user/list.do");
+    viewInfo.put("viewName", "/user/list.do");
 
     String userid = req.getParameter("userid");
     String password = req.getParameter("password");
@@ -42,7 +42,7 @@ public class UserEditCtrl implements Controller {
 
     //패스워드 확인
     String dbPassword = userSrv.selectedById(dto.getUserid()).getPassword();
-    if(dto.compareIdPwd(dbPassword)==0) {
+    if(dto.comparePwd(dbPassword)==0) {
       userSrv.update(dto);
     }
     
