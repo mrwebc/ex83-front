@@ -18,7 +18,8 @@ import com.study.jsp.ctrl.user.UserRegistCtrl;
 
 public class HanderMapping {
 
-  Map<String, Controller> urlMap = null;// url과 command 객체를 서로 연결시켜 주는 역할
+  // 요청url과 서브컨트롤러 객체를 서로 연결시켜주는 역할
+  Map<String, Controller> urlMap = null;
 
   // 생성자에서 맵초기화
   public HanderMapping() {
@@ -38,6 +39,7 @@ public class HanderMapping {
     urlMap.put("/user/delete.do", new UserDeleteCtrl());
   }
 
+  // 요청경로에 해당하는 서브컨트롤러 객체 리턴
   public Controller getController(String path) {
     return urlMap.get(path);
   }

@@ -43,7 +43,7 @@ public class DispatcherServlet_Sample extends HttpServlet{
     HanderMapping handlerMapping = new HanderMapping();
     Controller ctrl = handlerMapping.getController(path);
 
-    // 3단계 - 서브컨트롤러 실행 및 path 추출
+    // 3단계 - 서브컨트롤러 실행 및 viewName 추출
     Map<String, String> viewInfo = ctrl.execute(req, res);
     
     if(viewInfo.get("name").equals("forward")) {

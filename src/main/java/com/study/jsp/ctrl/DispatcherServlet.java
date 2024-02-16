@@ -28,13 +28,13 @@ public class DispatcherServlet extends HttpServlet{
   @Override
   protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     // 1단계 - URI 분석
-    String requestURI = req.getRequestURI();// 컨텍스트부터 .jsp 까지
+    String requestURI = req.getRequestURI();// 컨텍스트부터 .do 확장자까지
     String contextPath = req.getContextPath();
     
     String path = "";
     if(contextPath.compareTo("")==0) {
       path = requestURI;
-    }else {
+    }else {//별도의 컨텍스트 패스가 있는경우
       path = requestURI.substring(contextPath.length());
     }    
     System.out.println("path = " + path);
