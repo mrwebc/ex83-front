@@ -16,6 +16,7 @@
         <c:set var="contextPath" value="${pageContext.request.contextPath}" />
         <c:if test="${empty userid}">
             <p><a href="./views/user/login.jsp">로그인</a></p>
+            <p><a href="${contextPath}/board/list.do">글 목록</a></p>
             <p><a href="${contextPath}/user/list.do">회원목록</a></p>
             <p><a href="./views/user/regist.jsp">회원등록</a></p>
         </c:if>

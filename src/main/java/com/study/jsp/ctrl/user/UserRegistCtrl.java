@@ -17,7 +17,7 @@ public class UserRegistCtrl implements Controller {
   public Map<String, String> execute(HttpServletRequest req, HttpServletResponse res) {
    
     Map<String, String> viewInfo = new HashMap<String, String>();
-    viewInfo.put("name", "forward");
+    viewInfo.put("mode", "forward");
     viewInfo.put("viewName", "/user/list.do");
 
     String userid = req.getParameter("userid");

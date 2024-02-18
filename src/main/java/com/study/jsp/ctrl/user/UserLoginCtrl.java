@@ -18,7 +18,7 @@ public class UserLoginCtrl implements Controller {
   public Map<String, String> execute(HttpServletRequest req, HttpServletResponse res) {
     
     Map<String, String> viewInfo = new HashMap<String, String>();
-    viewInfo.put("name", "redirect");
+    viewInfo.put("mode", "redirect");
 
     // 클라이언트가 보내온 로그인 정보 수신
     String userid = req.getParameter("userid");

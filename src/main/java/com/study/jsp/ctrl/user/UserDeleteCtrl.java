@@ -16,7 +16,7 @@ public class UserDeleteCtrl implements Controller {
   public Map<String, String> execute(HttpServletRequest req, HttpServletResponse res) {
     
     Map<String, String> viewInfo = new HashMap<String, String>();
-    viewInfo.put("name", "redirect");
+    viewInfo.put("mode", "redirect");
     viewInfo.put("viewName", "/user/list.do");
     
     String userid = req.getParameter("userid");

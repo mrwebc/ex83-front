@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /*
-  서블릿 구성
+  서블릿 구성 - 프론트컨트롤러에는 오직 한나의 서블릿만 존재(*.do 형식으로 요청되는 모든 요청을 가로챈다)
   
   1. 요청 URI 분석
   2. URI에 매칭되는 서브컨트롤러 추출
-  3. 서브컨트롤러 실행
-  4. 뷰 path 추출
-  5. 데이터 포워딩
+  3. 서브컨트롤러의 execute() 호출
+  4. 화면단으로 이동한 viewName 추출
+  5. 데이터 바인딩후 포워딩
 */
 
 @WebServlet("*.do")
@@ -46,8 +46,8 @@ public class DispatcherServlet extends HttpServlet{
     // 3단계 - 서브컨트롤러 실행 및 viewName 추출
     Map<String, String> viewInfo = ctrl.execute(req, res);
     
-    if(viewInfo.get("name").equals("forward")) {
-      // 4단계 - 프론트단으로 데이터 포워딩
+    if(viewInfo.get("mode").equals("forward")) {
+      // 4단계 - 프론트엔드 단으로 데이터 포워딩 또는 리다이렉트
       //getRequestDispatcher()는 contextPath를 기준으로 자원을 구한다.
       RequestDispatcher dispatcher = req.getRequestDispatcher(viewInfo.get("viewName"));
       dispatcher.forward(req, res);

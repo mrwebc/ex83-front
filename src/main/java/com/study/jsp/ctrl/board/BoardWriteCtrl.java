@@ -17,7 +17,7 @@ public class BoardWriteCtrl implements Controller {
   public Map<String, String> execute(HttpServletRequest req, HttpServletResponse res) {
 
     Map<String, String> viewInfo = new HashMap<String, String>();
-    viewInfo.put("name", "redirect");
+    viewInfo.put("mode", "redirect");
     viewInfo.put("viewName", "/board/list.do");
     
     String title = req.getParameter("title");

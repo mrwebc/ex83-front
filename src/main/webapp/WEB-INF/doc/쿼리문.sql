@@ -1,6 +1,6 @@
-create database mvc default character set utf8;
+create database jsp_mvc default character set utf8;
 
-use mvc;
+use jsp_mvc;
 
 drop table if exists board;
 drop table if exists user;

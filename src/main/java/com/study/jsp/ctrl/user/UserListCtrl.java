@@ -18,7 +18,7 @@ public class UserListCtrl implements Controller {
   public Map<String, String> execute(HttpServletRequest req, HttpServletResponse res) {
     
     Map<String, String> viewInfo = new HashMap<String, String>();
-    viewInfo.put("name", "forward");
+    viewInfo.put("mode", "forward");
     viewInfo.put("viewName", "/views/user/list.jsp");
     
     UserService userSrv = Factory.INSTANCE.getUserService();

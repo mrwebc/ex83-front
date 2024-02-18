@@ -12,11 +12,11 @@ public interface Controller {
    * 서브컨트롤러에서
    * 
       Map<String, String> viewInfo = new HashMap<String, String>();
-      viewInfo.put("name", "redirect");
+      viewInfo.put("mode", "redirect");
       viewInfo.put("viewName", "/board/list.do");
       
       Map<String, String> viewInfo = new HashMap<String, String>();
-      viewInfo.put("name", "forward");
+      viewInfo.put("mode", "forward");
       viewInfo.put("viewName", "/views/board/list.jsp");      
 
    */  

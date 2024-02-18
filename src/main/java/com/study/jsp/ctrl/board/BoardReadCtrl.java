@@ -17,7 +17,7 @@ public class BoardReadCtrl implements Controller {
   public Map<String, String> execute(HttpServletRequest req, HttpServletResponse res) {
     
     Map<String, String> viewInfo = new HashMap<String, String>();
-    viewInfo.put("name", "forward");
+    viewInfo.put("mode", "forward");
     viewInfo.put("viewName", "/views/board/read.jsp");
     
     int seq = 0;

@@ -19,7 +19,7 @@ public class BoardListCtrl implements Controller {
   public Map<String, String> execute(HttpServletRequest req, HttpServletResponse res) {
     
     Map<String, String> viewInfo = new HashMap<String, String>();
-    viewInfo.put("name", "forward");
+    viewInfo.put("mode", "forward");
     
     //로그인한 사용자만 접근 가능하도록 설정
     HttpSession session = req.getSession();
@@ -27,6 +27,7 @@ public class BoardListCtrl implements Controller {
 
     if(session.getAttribute("userid") == null) {
       viewInfo.put("viewName", "/views/user/login.jsp");
+      return viewInfo;
     }
 
     BoardService boardService = Factory.INSTANCE.getBoardService();

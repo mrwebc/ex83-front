@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 
-import com.study.jsp.dao.UserMapper;
 import com.study.jsp.model.UserDTO;
 import com.study.jsp.model.UserVO;
+import com.study.jsp.persistence.UserMapper;
 import com.study.jsp.util.MapperUtil;
 
 public class UserServiceImpl implements UserService{
