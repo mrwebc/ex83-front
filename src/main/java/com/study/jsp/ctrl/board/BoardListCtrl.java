@@ -21,14 +21,17 @@ public class BoardListCtrl implements Controller {
     Map<String, String> viewInfo = new HashMap<String, String>();
     viewInfo.put("mode", "forward");
     
-    //로그인한 사용자만 접근 가능하도록 설정
-    HttpSession session = req.getSession();
-    System.out.println("BoardListCtrl 실행됨");
-
-    if(session.getAttribute("userid") == null) {
-      viewInfo.put("viewName", "/views/user/login.jsp");
-      return viewInfo;
-    }
+    //로그인한 사용자만 접근 가능하도록 설정 -> LoginCheckFilter 필터 처리함
+    
+    /*
+      HttpSession session = req.getSession();
+      System.out.println("BoardListCtrl 실행됨");
+  
+      if(session.getAttribute("userid") == null) {
+        viewInfo.put("viewName", "/views/user/login.jsp");
+        return viewInfo;
+      }
+    */
 
     BoardService boardService = Factory.INSTANCE.getBoardService();
     List<BoardDTO> list = boardService.findAll();
